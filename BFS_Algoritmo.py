@@ -62,3 +62,36 @@ class Grafo():
         for llave in self.m_lista_adyacencia.keys():
             # imprime cada nodo almacenado en la lista de adyacencia.
             print("nodo", llave, ": ", self.m_lista_adyacencia[llave])
+    
+    def bfs_transversal(self, nodo_de_inicio):
+        """
+        Este método permite insertar el recorrido BFS de un nodo inicial, posteriormente genera una lista de colas visitadas y muestra el recorrido realizado hasta llegar al objetivo deseado. 
+
+        Parametros -----> nodo_de_inicio : int
+                          visitado : int
+                          cola : int
+        """
+        visitado = set()
+        cola = Queue()
+
+        # permite asignar los nodos visitados a la cola para evitar bucles
+        cola.put(nodo_de_inicio)
+
+        # Permite añadir el nodo_de_inicio a la lista de visitas
+        visitado.add(nodo_de_inicio)
+
+        # Bucle de los nodos que se ejecutara si la cola no se encuentra vacia.
+        while not cola.empty():
+            # Asigna el nodo de la cola al nodo_actual
+            nodo_actual = cola.get()
+            # Imprime los nodos.
+            print(nodo_actual, end=" ")
+
+            # Bucle de obtención del siguiente nodo de la lista de adyacencia
+            for (siguiente_nodo, peso) in self.m_lista_adyacencia[nodo_actual]:
+                # En caso de que un nodo adyaente haya sido visitado
+                if siguiente_nodo not in visitado:
+                    # Se agrega el nodo a la cola
+                    cola.put(siguiente_nodo)
+                    # Se agrega el nodo a la lista de visitados
+                    visitado.add(siguiente_nodo)

@@ -95,3 +95,58 @@ class Grafo():
                     cola.put(siguiente_nodo)
                     # Se agrega el nodo a la lista de visitados
                     visitado.add(siguiente_nodo)
+
+if __name__ == "__main__":
+
+    """
+    En la clase main se instancia la clase Grafo para acceder a sus metodos, posteriormente se elaboran 5 casos de prueba para comprobar el funcionamiento del programa.
+    """
+    
+    print(" Caso de Prueba 1")
+    grafo_test1 = Grafo(6, dirigido = False) # Se procede a instanciar la clase `Grafo`.
+    grafo_test1.agregar_borde(0, 1) # Se asigna los bordes
+    grafo_test1.agregar_borde(0, 2) # Se asigna los bordes
+    grafo_test1.agregar_borde(0, 3) # Se asigna los bordes
+    grafo_test1.agregar_borde(2, 4) # Se asigna los bordes
+    grafo_test1.agregar_borde(2, 5) # Se asigna los bordes
+
+    grafo_test1.Imprimir_lista_adyacencia() #Se imprime la lista de adyacencia
+ 
+    print("A continuación se muestra el recorrido primero en anchura a partir del vértice 0)")
+    #Imprime toda la lista de colas
+    grafo_test1.bfs_transversal(0)
+    print()
+
+    print(" Caso de Prueba 2")
+    grafo_test2 = Grafo(6, dirigido = False) # instancia de la clase 'Grafo'
+    grafo_test2.agregar_borde(0, 1) # Se agrega los bordes
+    grafo_test2.agregar_borde(0, 2) # Se agrega los bordes
+    grafo_test2.agregar_borde(0, 3) # Se agrega los bordes
+    grafo_test2.agregar_borde(1, 2) # Se agrega los bordes
+    grafo_test2.agregar_borde(1, 4) # Se agrega los bordes
+    grafo_test2.agregar_borde(2, 3) # Se agrega los bordes
+    grafo_test2.agregar_borde(2, 4) # Se agrega los bordes
+    grafo_test2.agregar_borde(2, 5) # Se agrega los bordes    
+    
+
+    grafo_test2.Imprimir_lista_adyacencia() #Se imprime la lista de adyacencia
+
+    print("A continuación se muestra el recorrido primero en anchura a partir del vértice 0)")
+    #Imprime toda la lista de colas
+    grafo_test2.bfs_transversal(0)
+    print()
+
+    print(" Caso de Prueba 3")
+    grafo_test3 = Grafo(4, dirigido = False) # instancia de la clase `Grafo`
+    grafo_test3.agregar_borde(0, 1) # Se agrega los bordes
+    grafo_test3.agregar_borde(0, 2) # Se agrega los bordes
+    grafo_test3.agregar_borde(0, 3) # Se agrega los bordes
+    grafo_test3.agregar_borde(1, 2) # Se agrega los bordes
+    grafo_test3.agregar_borde(2, 3) # Se agrega los bordes
+
+    grafo_test3.Imprimir_lista_adyacencia() #Se imprime la lista de adyacencia
+
+    print("A continuación se muestra el recorrido primero en anchura a partir del vértice 0)")
+    #Imprime toda la lista de colas
+    grafo_test3.bfs_transversal(0)
+    print()
